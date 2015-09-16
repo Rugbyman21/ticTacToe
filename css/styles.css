@@ -1,0 +1,13 @@
+.game-background {
+  background-color: black;
+  margin: auto;
+  width: 700px;
+  height: 700px;
+}
+
+.tile {
+  background-color: tan;
+  width: 200px;
+  height: 200px;
+  margin: 16px;
+}
