@@ -12,6 +12,19 @@ function Board() {
   this.spaces = boardBuild();
 }
 
+Board.prototype.mark = function(xInput, yInput, mark) {
+  this.spaces.forEach(function(space) {
+    if (space.xCoordi === xInput) {
+      if (space.yCoordi === yInput) {
+        if (space.selection === null) {
+          return space.selection = mark;
+        }
+      }
+    }
+  });
+  return false;
+};
+
 var boardBuild = function() {
   var board = [];
   for (var y = 0; y < 3; y++) {

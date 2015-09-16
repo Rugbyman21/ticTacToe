@@ -19,4 +19,16 @@ describe('Board', function() {
     var spaceArray = boardBuild();
     expect(newGame.spaces).to.eql(spaceArray);
   });
+
+  it("marks an available space", function() {
+    var newBoard = new Board();
+    newBoard.mark(0, 0, "<3");
+    expect(newBoard.spaces[0].selection).to.equal("<3");
+  });
+
+  it("marks an available space", function() {
+    var newBoard = new Board();
+    newBoard.mark(0, 0, "<3");
+    expect(newBoard.mark(0, 0, "<3")).to.equal(false);
+  });
 });
