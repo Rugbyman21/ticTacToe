@@ -47,5 +47,13 @@ describe('Board', function() {
     newBoard.mark(0, 0, "c=3");
     expect(newBoard.winCheck()).to.equal(false);
   });
+});
 
+describe('Game', function() {
+  it('instantiate a new game with standard attributes', function() {
+    var newGame = new Game("<3", "c=3");
+    expect(newGame.turns).to.equal(0);
+    expect(newGame.player1.selection).to.equal("<3");
+    expect(newGame.player2.selection).to.equal("c=3");
+  });
 });

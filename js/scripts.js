@@ -12,6 +12,15 @@ function Board() {
   this.spaces = boardBuild();
 }
 
+function Game(selection1, selection2) {
+  this.turns = 0;
+  this.board = new Board();
+  this.player1 = new Player(selection1);
+  this.player2 = new Player(selection2);
+}
+
+
+
 Board.prototype.mark = function(xInput, yInput, mark) {
   this.spaces.forEach(function(space) {
     if (space.xCoordi === xInput) {
