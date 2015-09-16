@@ -45,7 +45,7 @@ describe('Board', function() {
     newBoard.mark(2, 2, "c=3");
     newBoard.mark(1, 1, "c=3");
     newBoard.mark(0, 0, "c=3");
-    expect(newBoard.winCheck()).to.equal(false);
+    expect(newBoard.winCheck()).to.equal(true);
   });
 });
 
