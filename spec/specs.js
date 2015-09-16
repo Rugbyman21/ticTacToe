@@ -26,9 +26,26 @@ describe('Board', function() {
     expect(newBoard.spaces[0].selection).to.equal("<3");
   });
 
-  it("marks an available space", function() {
+  it("returns false if the space is already filled", function() {
     var newBoard = new Board();
-    newBoard.mark(0, 0, "<3");
-    expect(newBoard.mark(0, 0, "<3")).to.equal(false);
+    newBoard.mark(2, 2, "<3");
+    expect(newBoard.mark(2, 2, "<3")).to.equal(false);
   });
+
+  it("returns false if row of three is not of the same mark", function() {
+    var newBoard = new Board();
+    newBoard.mark(2, 2, "<3");
+    newBoard.mark(1, 1, "c=3");
+    newBoard.mark(0, 0, "<3");
+    expect(newBoard.winCheck()).to.equal(false);
+  });
+
+  it("returns true if row of three is of the same mark", function() {
+    var newBoard = new Board();
+    newBoard.mark(2, 2, "c=3");
+    newBoard.mark(1, 1, "c=3");
+    newBoard.mark(0, 0, "c=3");
+    expect(newBoard.winCheck()).to.equal(false);
+  });
+
 });

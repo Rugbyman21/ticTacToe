@@ -25,6 +25,20 @@ Board.prototype.mark = function(xInput, yInput, mark) {
   return false;
 };
 
+Board.prototype.winCheck = function() {
+  var combinations = [[0, 3, 6], [1, 4, 7], [2, 5 ,8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [6, 4, 2]]
+  combinations.forEach(function(combo) {
+    var mark = [];
+    combo.forEach(function(coordiPair) {
+      mark.push(this[coordiPair]);
+    });
+    if (mark[0] === mark[1] === mark[2]) {
+      return true;
+    }
+  });
+  return false;
+}
+
 var boardBuild = function() {
   var board = [];
   for (var y = 0; y < 3; y++) {
